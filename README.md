@@ -10,4 +10,16 @@ A simple 32-bit RISC-V processor design that executes instructions in a single c
 | **S-type**           | SB, SH, SW                                                     | SB, SH, SW                                                       |
 | **B-type**           | BEQ, BNE, BLT, BGE, BLTU, BGEU                                 | BLT                                                              |
 
+## How to run the code
 
+1. Clone the repository.
+
+2. Open it in any RTL design suite, such as Xilinx Vivado or ModelSim.
+
+3. Instantiate `riscv_cpu_main` as the top module.
+
+4. Configure `tb.v` to be used as the testbench file.
+
+5. Run the simulation.
+
+## Keep Growing,Happy Learning :smile:
