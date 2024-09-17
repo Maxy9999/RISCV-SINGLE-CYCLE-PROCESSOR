@@ -9,7 +9,7 @@
 | **R-type**           | ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND, MUL, DIV, REM | ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND                 |
 | **I-type**           | ADDI, SLLI, SLTI, SLTIU, XORI, SRLI, SRAI, ORI, ANDI, LB, LH, LW, LBU, LHU | ADDI, SLLI, SLTI, SLTIU, XORI, SRLI, SRAI, ORI, ANDI, LB, LH, LW, LBU |
 | **S-type**           | SB, SH, SW                                                     | SB, SH, SW                                                       |
-| **B-type**           | BEQ, BNE, BLT, BGE, BLTU, BGEU                                 | BLT                                                              |
+| **B-type**           | BEQ, BNE, BLT, BGE, BLTU, BGEU                                 | BEQ, BNE, BLT, BGE, BLTU, BGEU                                                     |
 
 ## How to run the code
 
