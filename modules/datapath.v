@@ -4,10 +4,10 @@ module datapath (
     input         clk, reset,
     input [1:0]   ResultSrc,
     input         PCSrc, ALUSrc,
-    input         RegWrite,
+    input         RegWrite,Jump,
     input [1:0]   ImmSrc,
     input [3:0]   ALUControl,
-    output        Zero,
+    output        zero,res31,
     output [31:0] PC,
     input  [31:0] Instr,
     output [31:0] Mem_WrAddr, Mem_WrData,
@@ -29,7 +29,7 @@ imm_extend     ext (Instr[31:7], ImmSrc, ImmExt);
 
 // ALU logic
 mux2 #(32)     srcbmux(WriteData, ImmExt, ALUSrc, SrcB);
-alu            alu (SrcA, SrcB, ALUControl, ALUResult, Zero);
+alu            alu (SrcA, SrcB, ALUControl, ALUResult, zero,res31);
 mux3 #(32)     resultmux(ALUResult, ReadData, PCPlus4, ResultSrc, Result);
 
 assign Mem_WrData = WriteData;
