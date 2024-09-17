@@ -1,11 +1,11 @@
- 
+
 // alu.v - ALU module
 
 module alu #(parameter WIDTH = 32) (
     input       [WIDTH-1:0] a, b,       // operands
     input       [3:0] alu_ctrl,         // ALU control
     output reg  [WIDTH-1:0] alu_out,    // ALU output
-    output      zero                   // zero flag
+    output      zero,res31                  // zero flag
 );
 //reg cout;
 //reg [31:0]sum;
@@ -76,6 +76,7 @@ module alu #(parameter WIDTH = 32) (
        default:  alu_out <= 'bx;
      endcase
    end
-   assign Zero = (alu_out == 32'b0);
+   assign res31=alu_out[31];
+   assign zero = (alu_out == 32'b0);
 endmodule
 
