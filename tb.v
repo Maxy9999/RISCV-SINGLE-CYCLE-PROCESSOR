@@ -58,6 +58,21 @@ localparam LHU      =   32'h80;
 localparam BLT_IN   =   32'h90;
 localparam BLT_OUT  =   32'h9C;
 
+localparam BGE_IN   =   32'hAC;
+localparam BGE_OUT  =   32'hB8;
+
+localparam BLTU_IN  =   32'hC8;
+localparam BLTU_OUT =   32'hD4;
+
+localparam BGEU_IN  =   32'hE4;
+localparam BGEU_OUT =   32'hF0;
+
+localparam BNE_IN   =   32'h100;
+localparam BNE_OUT  =   32'h10C;
+
+localparam BEQ_IN   =   32'h11C;
+localparam BEQ_OUT  =   32'h128;
+
 // generate clock to sequence tests
 always begin
     clk <= 1; # 5; clk <= 0; # 5;
@@ -331,6 +346,94 @@ end
              if(Result === 5) $display("31. blt implementation is correct ");
              else begin
                  $display("31. blt implementation is incorrect");
+                 fault_instrs = fault_instrs + 1'b1;
+             end
+         end
+         BGE_IN : begin
+             if(Result <= 32'hB) $display("32. bge is executing");
+             else begin
+                 $display("bge struck in loop");
+                 flag = 1;
+                 $stop;
+             end
+         end
+
+         BGE_OUT : begin
+             i = i + 1'b1;
+             if(Result === -6) $display("32. bge implementation is correct");
+             else begin
+                 $display("32. bge implementation is incorrect");
+                 fault_instrs = fault_instrs + 1'b1;
+             end
+         end
+
+         BLTU_IN : begin
+             if(Result <= 4) $display("33. bltu is executing");
+             else begin
+                 $display("bltu struck in loop");
+                 flag = 1;
+                 $stop;
+             end
+         end
+
+         BLTU_OUT : begin
+             i = i + 1'b1;
+             if(Result === 5) $display("33. bltu implementation is correct ");
+             else begin
+                 $display("33. bltu implementation is incorrect");
+                 fault_instrs = fault_instrs + 1'b1;
+             end
+         end
+
+         BGEU_IN : begin
+             if(Result <= 5) $display("34. bgeu is executing");
+             else begin
+                 $display("bgeu struck in loop");
+                 flag = 1;
+                 $stop;
+             end
+         end
+
+         BGEU_OUT : begin
+             i = i + 1'b1;
+             if(Result === 0) $display("34. bgeu implementation is correct ");
+             else begin
+                 $display("34. bgeu implementation is incorrect");
+                 fault_instrs = fault_instrs + 1'b1;
+             end
+         end
+
+         BNE_IN : begin
+             if(Result <= 5) $display("35. bne is executing");
+             else begin
+                 $display("bne struck in loop");
+                 flag = 1;
+                 $stop;
+             end
+         end
+
+         BNE_OUT : begin
+             i = i + 1'b1;
+             if(Result === 5) $display("35. bne implementation is correct ");
+             else begin
+                 $display("35. bne implementation is incorrect");
+                 fault_instrs = fault_instrs + 1'b1;
+             end
+         end
+
+         BEQ_IN : begin
+             if(Result <=2) $display("36. beq is executing");
+             else begin
+                 $display("beq struck in loop");
+                 $stop;
+             end
+         end
+
+         BEQ_OUT : begin
+             i = i + 1'b1;
+             if(Result === 4) $display("36. beq implementation is correct ");
+             else begin
+                 $display("36. beq implementation is incorrect");
                  fault_instrs = fault_instrs + 1'b1;
              end
          end
