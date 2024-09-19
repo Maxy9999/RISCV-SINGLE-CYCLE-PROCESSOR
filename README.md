@@ -7,9 +7,10 @@
 | **Instruction Type** | **All Possible Instructions**                                   | **Instructions Implemented**                                         |
 |----------------------|----------------------------------------------------------------|------------------------------------------------------------------|
 | **R-type**           | ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND, MUL, DIV, REM | ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND                 |
-| **I-type**           | ADDI, SLLI, SLTI, SLTIU, XORI, SRLI, SRAI, ORI, ANDI, LB, LH, LW, LBU, LHU | ADDI, SLLI, SLTI, SLTIU, XORI, SRLI, SRAI, ORI, ANDI, LB, LH, LW, LBU |
+| **I-type**           | ADDI, SLLI, SLTI, SLTIU, XORI, SRLI, SRAI, ORI, ANDI, LB, LH, LW, LBU, LHU, LUI, AUIPC | ADDI, SLLI, SLTI, SLTIU, XORI, SRLI, SRAI, ORI, ANDI, LB, LH, LW, LBU, LHU, LUI, AUIPC |
 | **S-type**           | SB, SH, SW                                                     | SB, SH, SW                                                       |
-| **B-type**           | BEQ, BNE, BLT, BGE, BLTU, BGEU                                 | BEQ, BNE, BLT, BGE, BLTU, BGEU                                                     |
+| **B-type**           | BEQ, BNE, BLT, BGE, BLTU, BGEU                                 | BEQ, BNE, BLT, BGE, BLTU, BGEU                                 |
+| **J-type**           | JAL, JALR                                                     | JAL, JALR                                                       |
 
 ## How to run the code
 
