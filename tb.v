@@ -73,6 +73,8 @@ localparam BNE_OUT  =   32'h10C;
 localparam BEQ_IN   =   32'h11C;
 localparam BEQ_OUT  =   32'h128;
 
+localparam JALR     =   32'h134;
+localparam JAL      =   32'h138;
 // generate clock to sequence tests
 always begin
     clk <= 1; # 5; clk <= 0; # 5;
@@ -435,6 +437,23 @@ end
              else begin
                  $display("36. beq implementation is incorrect");
                  fault_instrs = fault_instrs + 1'b1;
+             end
+         end
+
+         JALR: begin
+             i = i + 1'b1;
+             if (Result === 32'h130) $display("37. jalr implementation is correct ");
+             else begin
+                 $display("37. jalr implementation is incorrect");
+                 fault_instrs = fault_instrs + 1'b1;
+             end
+         end
+
+         JAL: begin
+             i = i + 1'b1;
+             if (Result === 32'h13C ) $display("38. jal implementation is correct ");
+           else begin
+                 $display("38. jal implementation is incorrect");
              end
          end
      endcase
