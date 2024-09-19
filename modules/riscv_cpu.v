@@ -11,16 +11,16 @@ module riscv_cpu (
     output [31:0] Result
 );
 
-wire        ALUSrc, RegWrite, Jump, zero,res31;
+wire        ALUSrc, RegWrite, Jump, Jalr,zero,res31;
 wire [1:0]  ResultSrc, ImmSrc;
 wire [3:0]  ALUControl;
 
 controller  c   (Instr[6:0], Instr[14:12], Instr[30], zero,res31,
-                ResultSrc, MemWrite, PCSrc, ALUSrc, RegWrite, Jump,
+                ResultSrc, MemWrite, PCSrc, ALUSrc, RegWrite, Jump,Jalr,
                 ImmSrc, ALUControl);
 
 datapath    dp  (clk, reset, ResultSrc, PCSrc,
-                ALUSrc, RegWrite,Jump, ImmSrc, ALUControl,
+                ALUSrc, RegWrite,Jump, ImmSrc, ALUControl,Jalr,
                 zero, res31,PC, Instr, Mem_WrAddr, Mem_WrData, ReadData, Result);
 endmodule
 
